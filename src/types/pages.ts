@@ -1,0 +1,15 @@
+export { default as Home } from "../pages/home";
+export { default as About } from "../pages/about";
+export { default as Shop } from "../pages/shop";
+export { default as ProductCategories } from "../pages/category";
+export { default as Tag } from "../pages/tag";
+export { default as Search } from "../pages/search";
+export { default as Product } from "../pages/product";
+export { default as Services } from "../pages/services";
+export { default as Contact } from "../pages/contact";
+export { default as Error } from "../pages/error";
+export { default as Service } from "../pages/service";
+export { default as FAQ } from "../pages/faq";
+export { default as Download } from "../pages/download";
+export { default as Videos } from "../pages/videos";
+export { default as Team } from "../pages/team";

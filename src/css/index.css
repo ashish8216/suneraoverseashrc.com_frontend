@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@plugin 'tailwindcss-animate';
+
+@source "../src/**/*.{ts,tsx,js,jsx}";
+
+@layer utilities {
+  .container {
+    @apply mx-auto w-full px-[16px]
+    sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px]
+    xl:max-w-[1140px] 2xl:max-w-[1320px];
+  }
+  .container-fluid {
+    @apply mx-auto w-full px-[16px];
+  }
+  * {
+    @apply m-0 p-0;
+  }
+  img {
+    @apply w-full h-auto;
+  }
+  table {
+    @apply w-full;
+  }
+  table,
+  tr,
+  th,
+  td {
+    @apply border-2 border-solid border-gray-300;
+  }
+  p {
+    @apply text-justify mt-0  py-[4px] text-base sm:text-lg;
+  }
+  body {
+    @apply text-base sm:text-lg bg-white;
+    font-family: "Poppins", sans-serif;
+  }
+  h1 {
+    @apply text-3xl sm:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-lg sm:text-xl;
+  }
+
+  h5 {
+    @apply text-base sm:text-lg;
+  }
+
+  h6 {
+    @apply text-sm;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-[#006630] font-bold px-0 py-5;
+  }
+}
