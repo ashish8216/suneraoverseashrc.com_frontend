@@ -1,7 +1,9 @@
 import Aboutone from "../context/aboutone";
+import Partners from "../context/product";
 import ServiceHome from "../context/servicehome";
 import Slideshows from "../context/slideshows";
 import Testimonials from "../context/testimonials";
+import Product from "./product";
 
 export default function Home() {
   return (
@@ -9,6 +11,7 @@ export default function Home() {
       <title>Home</title>
 
       <Slideshows />
+      <Partners />
       <Aboutone />
       <ServiceHome />
       <Testimonials />

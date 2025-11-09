@@ -6,6 +6,7 @@ import {
   FaPhoneVolume,
   FaTiktok,
 } from "react-icons/fa6";
+import Navbar from "./navbar";
 
 export default function Header() {
   const { setting, loading, error } = useSetting();
@@ -17,14 +18,14 @@ export default function Header() {
     return <p className="py-4 text-center text-gray-500">No setting found</p>;
 
   return (
-    <header>
+    <header className="w-full sticky top-0 z-50 shadow-md">
       {/* Top Bar */}
-      <div className="bg-[#1d1e50]  text-white">
-        <div className="container mx-auto">
+      <div className="bg-[#1d1e50] text-white">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-y-2 lg:grid-cols-2">
             {/* Left Info */}
-            <div className="hidden p-2 px-4 font-medium lg:block">
-              <ul className="flex flex-wrap items-center gap-4">
+            <div className="hidden p-2 font-medium lg:block">
+              <ul className="flex flex-wrap items-center gap-4 text-sm">
                 <li className="flex items-center gap-2">
                   <FaEnvelope className="text-lg" />
                   <span>{setting.email}</span>
@@ -36,9 +37,9 @@ export default function Header() {
               </ul>
             </div>
 
-            {/* Right Info + Social */}
-            <div className="p-2 px-4 font-medium">
-              <ul className="flex flex-wrap items-center justify-end gap-4">
+            {/* Right Social Links */}
+            <div className="p-2 font-medium flex justify-center lg:justify-end">
+              <ul className="flex items-center gap-4">
                 {setting.facebook && (
                   <li>
                     <Link
@@ -52,56 +53,29 @@ export default function Header() {
                     </Link>
                   </li>
                 )}
-                {setting.twitter && (
-                  <li>
-                    <Link
-                      to={setting.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="TikTok"
-                      className="transition hover:text-gray-300"
-                    >
-                      <FaTiktok className="text-lg" />
-                    </Link>
-                  </li>
-                )}
+                
               </ul>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Logo + Tagline */}
-      <div className="bg-white py-4">
-        <div className="container">
-          <div className="-mx-2 flex flex-wrap items-center">
-            {/* Logo */}
-            <div className="w-full px-2 text-center md:w-4/12 md:text-left">
-              <Link to="/" aria-label="Home">
-                <img
-                  src={setting.logo}
-                  alt="Logo"
-                  loading="lazy"
-                  className="mx-auto w-full max-w-[300px] md:mx-0"
-                />
-              </Link>
-            </div>
+      {/* Logo + Navbar Section */}
+      <div className="bg-white">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-3">
+          {/* Logo */}
+          <Link to="/" aria-label="Home" className="mb-3 md:mb-0">
+            <img
+              src="https://suneraoverseashrc.com/storage/new-logo-sunera-1.jpg"
+              alt="Logo"
+              loading="lazy"
+              className="mx-auto w-full max-w-[180px] md:max-w-[200px]"
+            />
+          </Link>
 
-            {/* Tagline */}
-            <div className="mt-0 w-full px-2 text-center md:mt-0 md:w-8/12 hidden md:block">
-              <h2
-                className="text-2xl font-bold text-[#ec1a23] md:text-4xl"
-                style={{ fontFamily: "Times New Roman, sans-serif" }}
-              >
-                {setting.name}
-              </h2>
-              <p
-                className="-mt-6 text-[#2d3091] text-[11px] md:text-2xl text-center"
-                style={{ fontFamily: "Lucida Calligraphy, sans-serif" }}
-              >
-                Interior Design & Decoration with Turnkey Contractor
-              </p>
-            </div>
+          {/* Navbar */}
+          <div className="w-full md:w-auto">
+            <Navbar />
           </div>
         </div>
       </div>

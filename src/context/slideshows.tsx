@@ -1,62 +1,56 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { useSlideshow } from "../api/use";
-import { Navigation, A11y, Autoplay } from "swiper/modules";
-
-// Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import { Link } from "react-router";
-
 export default function Slideshows() {
-  const { slideshow, loading, error } = useSlideshow();
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-  if (!slideshow || slideshow.length === 0) return <p>No slideshow found</p>;
-
   return (
-    <div className="w-full max-w-screen">
-      <Swiper
-        modules={[Navigation, A11y, Autoplay]}
-        spaceBetween={30}
-        slidesPerView={1}
-        loop
-        navigation
-        autoplay={{ delay: 4000, disableOnInteraction: false }}
-        onSwiper={(swiper) => console.log("Swiper initialized:", swiper)}
-        onSlideChange={() => console.log("Slide changed")}
-      >
-        {slideshow.map(({ title, image, p }, index) => (
-          <SwiperSlide key={index} aria-label={`Slide: ${title}`}>
-            <div
-              className="relative h-[500px] bg-center bg-cover flex items-center justify-start"
-              style={{
-                backgroundImage: `url(${image})`,
-                backgroundColor: "#000",
-              }}
-            >
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-10" />
-
-              {/* Slide content */}
-              <div className="relative z-20 p-[30px] md:p-0 md:pl-40 max-w-xl text-left">
-                <h2
-                  className=" font-bold text-white"
-                  style={{ fontFamily: "Montserrat,sans-serif" }}
-                >
-                  {title}
-                </h2>
-                <p className="font-bold sm:text-lg text-base text-white">{p}</p>
-                <Link to="/about">
-                  <button className="mt-4 rounded bg-red-600 px-6 py-2 text-white transition hover:bg-blue-700">
-                    About us
-                  </button>
-                </Link>
-              </div>
+    <section className="relative overflow-hidden bg-blue-300">
+      <div className="container mx-auto px-6 lg:px-12 py-24 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        {/* Left Content */}
+        <div className="space-y-6">
+          <h1 className="text-4xl font-bold text-gray-900 leading-tight">
+            We Help To Grow <br /> Your Business
+          </h1>
+          <p className="text-gray-600 max-w-md">
+            Anyone can invest money to different currency to increase their
+            earnings by the help of trading through online.
+          </p>
+          {/* Buttons */}
+          <div className="flex items-center gap-4">
+            <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md font-medium">
+              Get Started
+            </button>
+            <button className="flex items-center gap-2 text-gray-800 hover:text-gray-900">
+              <span className="w-9 h-9 border border-gray-300 rounded-full flex items-center justify-center">
+                ▶
+              </span>
+              Watch Video
+            </button>
+          </div>
+          {/* Social Icons */}
+          <div>
+            <span className="text-gray-800 font-semibold">Follow Us</span>
+            <div className="flex gap-4 mt-3 text-gray-600 text-lg">
+              <a href="#" className="hover:text-orange-500">
+                
+              </a>
+              <a href="#" className="hover:text-orange-500">
+                
+              </a>
+              <a href="#" className="hover:text-orange-500">
+                
+              </a>
+              <a href="#" className="hover:text-orange-500">
+                
+              </a>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+          </div>
+        </div>
+        {/* Right Image */}
+        <div className="flex justify-end">
+          <img
+            src="https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg"
+            alt=""
+            className="rounded-lg shadow-lg object-cover w-full h-full"
+          />
+        </div>
+      </div>
+    </section>
   );
 }
