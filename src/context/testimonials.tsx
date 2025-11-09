@@ -7,62 +7,60 @@ import { useTestimonial } from "../api/use";
 export default function Testimonials() {
   const { testimonials, loading, error } = useTestimonial();
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <p className="text-center py-6">Loading...</p>;
+  if (error)
+    return <p className="text-center text-red-500 py-6">Error: {error}</p>;
   if (!testimonials || testimonials.length === 0)
-    return <p>No service found</p>;
+    return <p className="text-center py-6">No testimonials found.</p>;
 
   return (
-    <section className="bg-white py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10">Testimonials</h2>
+    <section className="py-16 bg-blue-950">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold mb-2 text-white">
+            What Our Clients Say
+          </h2>
+        </div>
 
         <Swiper
           modules={[Pagination, Autoplay]}
-          loop={true}
-          autoplay={{ delay: 5000 }}
           pagination={{ clickable: true }}
-          spaceBetween={30}
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            640: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
+          autoplay={{ delay: 4000 }}
+          spaceBetween={40}
+          slidesPerView={1}
+          loop={true}
+          className="max-w-3xl mx-auto"
         >
-          {testimonials.map(({ desction, image, name }, id) => (
-            <SwiperSlide key={id}>
-              <div className="p-6 bg-gray-50 rounded-lg shadow">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border">
-                    <img
-                      src={image}
-                      alt={name}
-                      aria-hidden="true"
-                      loading="lazy"
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg">{name}</h3>
-                  </div>
-                </div>
-                <p className="text-gray-600 italic">"{desction}"</p>
+          {testimonials.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className=" p-8 rounded-2xl shadow-md text-center">
+                <p
+                  className="
+    relative text-gray-700 italic mb-6
+    before:content-['“'] after:content-['”']
+    before:text-6xl after:text-6xl
+    before:text-gray-300/30 after:text-gray-300/30
+    before:absolute after:absolute
+    before:-top-6 before:-left-4
+    after:-bottom-6 after:-right-4
+    block leading-relaxed
+  "
+                >
+                  {item.message || item.description}
+                </p>
+
+                <h4 className="text-lg font-semibold text-white">
+                  {item.name}
+                </h4>
+                {item.position && (
+                  <p className="text-sm text-white">{item.position}</p>
+                )}
               </div>
             </SwiperSlide>
           ))}
-
-          {/* Add more <SwiperSlide> as needed */}
         </Swiper>
       </div>
     </section>
+    
   );
 }

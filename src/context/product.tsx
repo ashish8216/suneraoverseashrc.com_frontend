@@ -11,18 +11,18 @@ export default function Partners() {
             <img
               src="https://iglobal.edu.np/public/storage/files/2/1672224132Iglobal%20bridge%20to%20success.jpeg"
               alt="Partner 1"
-              className="h-28 w-auto object-contain"
+              className="max-h-28 w-auto object-contain"
             />
-            <p className="mt-3 text-gray-700 text-sm font-medium">Partner 1</p>
+            <p className="mt-3 text-gray-700 text-sm font-medium">iGlobal Learining Center</p>
           </div>
 
           <div className="flex flex-col items-center">
             <img
               src="https://www.paradise.com.np/images/main-logo.png"
               alt="Partner 2"
-              className="h-28 w-auto object-contain"
+              className="max-h-28 w-auto object-contain"
             />
-            <p className="mt-3 text-gray-700 text-sm font-medium">Partner 2</p>
+            <p className="mt-3 text-gray-700 text-sm font-medium">Paradise International (P) Ltd </p>
           </div>
         </div>
       </div>
