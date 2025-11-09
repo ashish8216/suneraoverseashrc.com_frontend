@@ -21,7 +21,7 @@ const ImagePopupAuto: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-10">
+    <div className="flex flex-col items-center justify-center py-10 " style={{ display:"none" }}>
       {/* Thumbnail */}
       <style
         dangerouslySetInnerHTML={{
