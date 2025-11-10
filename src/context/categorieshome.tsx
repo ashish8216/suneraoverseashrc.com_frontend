@@ -17,27 +17,21 @@ export default function CategoriesHome() {
 
   return (
     <div className="container mx-auto mb-8 px-4">
-      <h2 className="mb-6 text-center text-2xl font-semibold">Category</h2>
-
       <div className="space-y-10">
         {parents.map((parent) => (
-          <div key={parent.id} className="mt-2 border-t-2 pt-2">
+          <div key={parent.id} className="mt-2  pt-2">
             <div className="flex flex-col md:flex-row">
               {/* Parent Category */}
-              <Link to={`/category/${parent.slug}`} className="w-full md:w-1/3">
-                <div className="flex h-[220px] w-full items-center justify-center overflow-hidden md:h-auto">
-                  <img
-                    src={parent.image}
-                    alt={`Photo of ${parent.name}`}
-                    aria-hidden="true"
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="p-3 text-center text-lg font-medium">
-                  {parent.name}
-                </div>
-              </Link>
+
+              <div className="flex h-[220px] w-full items-center justify-center overflow-hidden md:h-auto">
+                <img
+                  src={parent.image}
+                  alt={`Photo of ${parent.name}`}
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
 
               {/* Subcategories */}
               <div className="w-full px-2 pt-2 pb-2 md:w-1/1">

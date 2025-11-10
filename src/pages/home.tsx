@@ -1,4 +1,6 @@
 import Aboutone from "../context/aboutone";
+import Categories from "../context/categories";
+import CategoriesHome from "../context/categorieshome";
 import JobsVacancy from "../context/job";
 import ImagePopupAuto from "../context/popup";
 import ImagePopup from "../context/popup";
@@ -21,6 +23,7 @@ export default function Home() {
       <ServiceHome />
       <Testimonials />
       <JobsVacancy />
+      <Categories/>
     </>
   );
 }

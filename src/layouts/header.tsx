@@ -53,32 +53,13 @@ export default function Header() {
                     </Link>
                   </li>
                 )}
-                
               </ul>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Logo + Navbar Section */}
-      <div className="bg-white">
-        <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between py-3">
-          {/* Logo */}
-          <Link to="/" aria-label="Home" className="mb-3 md:mb-0">
-            <img
-              src="https://suneraoverseashrc.com/storage/new-logo-sunera-1.jpg"
-              alt="Logo"
-              loading="lazy"
-              className="mx-auto w-full max-w-[180px] md:max-w-[200px]"
-            />
-          </Link>
-
-          {/* Navbar */}
-          <div className="w-full md:w-auto">
-            <Navbar />
-          </div>
-        </div>
-      </div>
+      <Navbar />
     </header>
   );
 }

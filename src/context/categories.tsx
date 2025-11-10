@@ -30,7 +30,7 @@ export default function Categories() {
           <SwiperSlide key={id} className="p-2">
             <Link to={`/tag/${slug}`}>
               <div className="group flex flex-col items-center justify-center transition-transform duration-300 hover:scale-105">
-                <div className="flex h-22 w-22 items-center justify-center overflow-hidden rounded-full bg-gray-200 shadow-md transition-shadow duration-300 group-hover:shadow-lg md:h-32 md:w-32">
+                <div className="flex h-22 w-22 items-center justify-center overflow-hidden  bg-gray-200 shadow-md transition-shadow duration-300 group-hover:shadow-lg md:h-32 md:w-32">
                   <img
                     src={image}
                     alt={`Photo of ${name}`}
@@ -40,7 +40,6 @@ export default function Categories() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <p className="mt-2 text-center text-sm text-gray-800">{name}</p>
               </div>
             </Link>
           </SwiperSlide>

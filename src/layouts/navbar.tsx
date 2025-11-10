@@ -1,43 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import { FaBars, FaChevronDown, FaTimes } from "react-icons/fa";
-
-const menuItems = [
-  {
-    name: "Home",
-    path: "/",
-  },
-  {
-    name: "About Us",
-    children: [
-      { name: "Who we are", path: "/who-we-are" },
-      { name: "Principles of our work", path: "/principles-of-our-work" },
-      { name: "Why Work with Us", path: "/why-work-with-us" },
-      { name: "OUR VISION", path: "/our-vision" },
-      { name: "OUR MISSION", path: "/our-mission" },
-      { name: "Our Core Values", path: "/our-core-values" },
-      { name: "Quality Policy", path: "/quality-policy" },
-    ],
-  },
-  {
-    name: "WHY US?",
-    children: [
-      { name: "Our Strength", path: "/our-strength" },
-      {
-        name: "Benefits of Using Sunera Overseas (For Employer)",
-        path: "/benefits-of-using-sunera-overseas-for-employer",
-      },
-      {
-        name: "Benefits of Using Sunera Overseas (For Job Seeker)",
-        path: "/benefits-of-using-sunera-overseas-for-job-seeker",
-      },
-    ],
-  },
-  { name: "Services", path: "/services" },
-  { name: "FAQs", path: "/faqs" },
-  { name: "Blog", path: "/blog" },
-  { name: "Contact", path: "/contact" },
-];
+import { Navigation } from "../components/navigation";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -48,9 +12,17 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow">
+    <nav className="bg-white">
       <div className="container mx-auto flex items-center justify-between px-4 py-3">
         {/* Mobile toggle */}
+        <Link to="/" aria-label="Home">
+          <img
+            src="https://suneraoverseashrc.com/storage/new-logo-sunera-1.jpg"
+            alt="Logo"
+            loading="lazy"
+            className=" mx-auto w-full max-w-[80px]"
+          />
+        </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="text-2xl text-[#1d1e50] lg:hidden"
@@ -66,7 +38,7 @@ export default function Navbar() {
               : "hidden lg:flex"
           } flex-col lg:flex-row lg:items-center lg:gap-6`}
         >
-          {menuItems.map((item) => (
+          {Navigation.map((item) => (
             <li
               key={item.name}
               className="relative group border-b border-gray-200 lg:border-none"

@@ -41,14 +41,12 @@ export default function Footer() {
           {/* Brand + Text */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <img src="/logo.svg" className="w-10" alt="" />
-              <span className="text-2xl font-semibold text-white">Torkbiz</span>
+              <img
+                src="https://suneraoverseashrc.com/storage/new-logo-sunera-1.jpg"
+                className="w-full"
+                alt="https://suneraoverseashrc.com/storage/new-logo-sunera-1.jpg"
+              />
             </div>
-            <p className="leading-relaxed">
-              Welcome to our trading site! We offer the best, most affordable
-              products and services around. Shop now and start finding great
-              deals!
-            </p>
           </div>
           {/* Quick Links */}
           <div className="space-y-4">
@@ -134,8 +132,8 @@ export default function Footer() {
       {/* Bottom Section */}
       <div className="container mx-auto px-6 lg:px-12 py-6 flex flex-col lg:flex-row justify-between items-center gap-6">
         <p className="text-gray-400 text-sm">
-          © 2025 All Rights Reserved By{" "}
-          <span className="text-orange-400 font-medium">Thetork</span>
+          © 2025 All Rights Reserved By
+          <span className="text-orange-400 font-medium"></span>
         </p>
         <div className="flex gap-5 text-xl text-gray-300">
           <a href="#" className="hover:text-orange-400">

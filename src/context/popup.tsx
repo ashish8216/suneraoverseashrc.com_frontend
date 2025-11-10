@@ -1,36 +1,45 @@
-import React, { useState, useEffect, MouseEvent } from "react";
+import React, { useState, useEffect } from "react";
 
 const ImagePopupAuto: React.FC = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [open, setOpen] = useState(false);
 
-  const imageUrl: string =
-    "https://images.unsplash.com/photo-1612832020729-4570bf0b236f?w=800&q=80";
+  const imageUrl =
+    "https://suneranepal.com.np/public//storage/files/1/87e832ef-12b9-4a95-8808-9c220b89d48c.jpg";
 
-  // ✅ Auto open on mount
+  // ✅ Auto open after short delay
   useEffect(() => {
-    const timer = setTimeout(() => setOpen(true), 500); // slight delay for smooth entry
+    const timer = setTimeout(() => setOpen(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
+  // ✅ Close when clicking outside
   const handleBackdropClick = () => {
     setOpen(false);
   };
 
-  const handleImageClick = (e: MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation(); // prevent closing when clicking on image area
+  // ✅ Prevent close when clicking image area
+  const handleImageClick = (e: any) => {
+    e.stopPropagation();
   };
 
   return (
-    <div className="flex flex-col items-center justify-center py-10 " style={{ display:"none" }}>
-      {/* Thumbnail */}
+    <div className="flex flex-col items-center justify-center">
+      {/* Custom fade-in animation */}
       <style
         dangerouslySetInnerHTML={{
-          __html:
-            "\n        @keyframes fadeIn {\n  from { opacity: 0; transform: scale(0.95); }\n  to { opacity: 1; transform: scale(1); }\n}\n\n.animate-fadeIn {\n  animation: fadeIn 0.3s ease-out;\n}\n\n      ",
+          __html: `
+            @keyframes fadeIn {
+              from { opacity: 0; transform: scale(0.95); }
+              to { opacity: 1; transform: scale(1); }
+            }
+            .animate-fadeIn {
+              animation: fadeIn 0.3s ease-out;
+            }
+          `,
         }}
       />
 
-      {/* Popup Overlay */}
+      {/* ✅ Popup Overlay */}
       {open && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
@@ -42,9 +51,11 @@ const ImagePopupAuto: React.FC = () => {
           >
             <img
               src={imageUrl}
-              alt="Preview"
+              alt="Popup"
               className="rounded-2xl shadow-2xl max-h-[80vh] object-contain animate-fadeIn"
             />
+
+            {/* Close button */}
             <button
               onClick={() => setOpen(false)}
               className="absolute -top-3 -right-3 bg-white/80 hover:bg-white text-black rounded-full p-2 shadow"
